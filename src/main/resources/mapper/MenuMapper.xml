@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hdlitest.mybatis_plus.mapper.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.hdlitest.mybatis_plus.entity.Menu">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="perms" property="perms" />
+        <result column="type" property="type" />
+        <result column="icon" property="icon" />
+        <result column="sort_no" property="sortNo" />
+        <result column="deleted" property="deleted" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, parent_id, name, url, perms, type, icon, sort_no, deleted, created_time, updated_time
+    </sql>
+
+</mapper>
