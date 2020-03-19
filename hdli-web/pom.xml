@@ -36,6 +36,8 @@
 
 
         <!--结合redis实现分布式锁-->
+        <!--Redisson在基于NIO的Netty框架上，充分的利用了Redis键值数据库提供的一系列优势，
+        在Java实用工具包中常用接口的基础上，为使用者提供了一系列具有分布式特性的常用工具类-->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>

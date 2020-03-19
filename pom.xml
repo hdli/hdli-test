@@ -12,13 +12,9 @@
         <module>hdli-rpc</module>
         <module>hdli-tool</module>
         <module>definition-spring-boot-starter</module>
+        <module>hdli-zookeeper-curator-base</module>
     </modules>
-    <!--<parent>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
-        <!--<version>2.2.0.RELEASE</version>-->
-        <!--<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-    <!--</parent>-->
+
     <groupId>com.example</groupId>
     <artifactId>hdli-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -27,37 +23,29 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <dependencyManagement>
+
+    </dependencyManagement>
+
     <dependencies>
 
-        <!--&lt;!&ndash;hessian 序列化 二进制序列化协议 （可以跨语言）&ndash;&gt;-->
+        <!--&lt;!&ndash;定时任务 &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>com.caucho</groupId>-->
-            <!--<artifactId>hessian</artifactId>-->
-            <!--<version>4.0.38</version>-->
+            <!--<groupId>org.quartz-scheduler</groupId>-->
+            <!--<artifactId>quartz</artifactId>-->
+            <!--<version>2.3.2</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>slf4j-api</artifactId>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
         <!--</dependency>-->
-        <!--&lt;!&ndash;xml 序列化&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.thoughtworks.xstream</groupId>-->
-            <!--<artifactId>xstream</artifactId>-->
-            <!--<version>1.4.10</version>-->
-        <!--</dependency>-->
-
-        <!--定时任务 -->
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-            <version>2.3.2</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
 
         <!--Guava 布隆过滤器  RateLimiter限流 等等-->
@@ -67,12 +55,6 @@
             <version>28.1-jre</version>
         </dependency>
 
-        <!--&lt;!&ndash;结合redis实现分布式锁&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.redisson</groupId>-->
-            <!--<artifactId>redisson</artifactId>-->
-            <!--<version>3.11.6</version>-->
-        <!--</dependency>-->
 
         <!--反射工具类-->
         <dependency>
@@ -127,11 +109,41 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.2.RELEASE</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
