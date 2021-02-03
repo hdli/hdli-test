@@ -1,6 +1,8 @@
 package com.example.hdlitest.controller;
 
 import com.example.hdlitest.tool.rateLimiter.AccessLimitService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +17,14 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/guavalimitdemo")
+@Api(tags = "限流测试")
 public class HelloController {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     @Autowired
     private AccessLimitService accessLimitService;
 
+
+    @ApiOperation(value = "测试接口", notes = "测试接口")
     @RequestMapping("/access")
     public String access(){
         //尝试获取令牌
