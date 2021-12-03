@@ -27,7 +27,7 @@ public class CodeGenerator {
     private static final String URL = "jdbc:mysql://localhost:3306/shriotest?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false";
     private static final String driverName = "com.mysql.cj.jdbc.Driver";
     private static final String userName = "root";
-    private static final String password = "123456";
+    private static final String password = "lihuidong";
 
     private static final String table_prefix = "pc_";
 

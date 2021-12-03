@@ -20,4 +20,9 @@ public class ThreadInfo {
         this.finished = finished;
     }
 
+    public static void main(String[] args) {
+        int i = 73;
+        System.out.println(i%3);
+    }
+
 }

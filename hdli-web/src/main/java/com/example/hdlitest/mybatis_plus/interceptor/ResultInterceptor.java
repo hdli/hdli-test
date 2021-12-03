@@ -29,17 +29,17 @@ public class ResultInterceptor implements Interceptor {
         //可以获得mybatis里的resultype
         Object result = invocation.proceed();
         log.info("请求的结果："+result);
-        if (result instanceof ArrayList) {
-            ArrayList resultList = (ArrayList) result;
-            for (int i = 0; i < resultList.size(); i++) {
-                Object oi = resultList.get(i);
-                Class c = oi.getClass();
-                Class[] types = {String.class};
-                Method method = c.getMethod("setEmail", types);
-                // 调用obj对象的 method 方法
-                method.invoke(oi, "china");
-            }
-        }
+//        if (result instanceof ArrayList) {
+//            ArrayList resultList = (ArrayList) result;
+//            for (int i = 0; i < resultList.size(); i++) {
+//                Object oi = resultList.get(i);
+//                Class c = oi.getClass();
+//                Class[] types = {String.class};
+//                Method method = c.getMethod("setEmail", types);
+//                // 调用obj对象的 method 方法
+//                method.invoke(oi, "china");
+//            }
+//        }
         return result;
     }
 

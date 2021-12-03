@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.hdlitest.mybatis_plus.mapper.StoreMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.hdlitest.mybatis_plus.entity.Store">
+        <id column="store_id" property="storeId" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="gmt_approve" property="gmtApprove" />
+        <result column="creator_id" property="creatorId" />
+        <result column="modifier_id" property="modifierId" />
+        <result column="approver_id" property="approverId" />
+        <result column="store_code" property="storeCode" />
+        <result column="store_name" property="storeName" />
+        <result column="store_type" property="storeType" />
+        <result column="business_type" property="businessType" />
+        <result column="store_status" property="storeStatus" />
+        <result column="business_status" property="businessStatus" />
+        <result column="channel_code_list" property="channelCodeList" />
+        <result column="prov" property="prov" />
+        <result column="city" property="city" />
+        <result column="district" property="district" />
+        <result column="town" property="town" />
+        <result column="address" property="address" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="master_store_id_list" property="masterStoreIdList" />
+        <result column="merchant_id" property="merchantId" />
+        <result column="business_category_list" property="businessCategoryList" />
+        <result column="guide_code" property="guideCode" />
+        <result column="user_name" property="userName" />
+        <result column="user_phone" property="userPhone" />
+        <result column="user_email" property="userEmail" />
+        <result column="user_idcard_number" property="userIdcardNumber" />
+        <result column="user_idcard_type" property="userIdcardType" />
+        <result column="user_idcard_photo_list" property="userIdcardPhotoList" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="store_pic_list" property="storePicList" />
+        <result column="store_logo" property="storeLogo" />
+        <result column="auth_status" property="authStatus" />
+        <result column="outer_id" property="outerId" />
+        <result column="brand_id" property="brandId" />
+        <result column="user_id" property="userId" />
+        <result column="grade" property="grade" />
+        <result column="authentication" property="authentication" />
+        <result column="open_time" property="openTime" />
+        <result column="close_time" property="closeTime" />
+        <result column="version" property="version" />
+        <result column="features" property="features" />
+        <result column="extract_features" property="extractFeatures" />
+        <result column="market" property="market" />
+        <result column="pic_url" property="picUrl" />
+        <result column="location" property="location" />
+        <result column="self_take" property="selfTake" />
+        <result column="storage" property="storage" />
+        <result column="description" property="description" />
+        <result column="auth_merchant" property="authMerchant" />
+        <result column="pic_logo" property="picLogo" />
+        <result column="out_store_id" property="outStoreId" />
+        <result column="platform" property="platform" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        store_id, gmt_create, gmt_modified, gmt_approve, creator_id, modifier_id, approver_id, store_code, store_name, store_type, business_type, store_status, business_status, channel_code_list, prov, city, district, town, address, longitude, latitude, master_store_id_list, merchant_id, business_category_list, guide_code, user_name, user_phone, user_email, user_idcard_number, user_idcard_type, user_idcard_photo_list, tenant_id, store_pic_list, store_logo, auth_status, outer_id, brand_id, user_id, grade, authentication, open_time, close_time, version, features, extract_features, market, pic_url, location, self_take, storage, description, auth_merchant, pic_logo, out_store_id, platform
+    </sql>
+
+
+</mapper>
