@@ -26,12 +26,12 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>hdli-designMode</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${test.version}</version>
         </dependency>
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>hdli-tool</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${test.version}</version>
         </dependency>
 
 
