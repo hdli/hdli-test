@@ -26,6 +26,16 @@ public class PalindromicNumber {
      * 示例 3：
      *
      * 输入：x = 10输出：false解释：从右向左读 为 01 。因此它不是一个回文数。
+     *
+     *
+     *
+     *
+     *
+     *
+     * 进阶：你能不将整数转为字符串来解决这个问题吗？
+     *
+     *
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -63,6 +73,25 @@ public class PalindromicNumber {
             builder.append(str.charAt(i));
         }
         return StringUtils.equals(builder.toString(),str);
+    }
+
+    /**
+     * 进阶：你能不将整数转为字符串来解决这个问题吗？
+     * @param x
+     * @return
+     */
+    public static Boolean isPalindromic2(int x){
+        if (x < 0){
+            return false;
+        }
+        if (x <= 9){
+            return true;
+        }
+
+
+
+        return false;
+
     }
 
 
