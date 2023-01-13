@@ -1,5 +1,6 @@
 package com.example.hdlitest.leetcode;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
@@ -34,12 +35,11 @@ public class ReplaceStr_1807 {
 
 
         String a = "(name) asasa (age)";
-        System.out.println("a".equals(String.valueOf(a.charAt(2))));
 
-        a= a.replaceAll("(name)","kk");
+        String[] split = a.split("\\(");
 
 
-        System.out.println(a);
+        System.out.println(JSON.toJSONString(split));
     }
 
     /**
@@ -50,7 +50,7 @@ public class ReplaceStr_1807 {
      */
     public static String evaluate(String s, List<List<String>> knowledge) {
         for (List<String> k : knowledge){
-            String key = "("+k.get(0)+")";
+            String key = "\\("+k.get(0)+"\\)";
             if (s.contains(key)){
                 s = s.replaceAll(key, k.get(1));
             }
