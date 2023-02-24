@@ -13,6 +13,7 @@
         <module>hdli-tool</module>
         <module>definition-spring-boot-starter</module>
         <module>hdli-zookeeper-curator-base</module>
+        <module>hdli-out-sdk</module>
     </modules>
 
     <groupId>com.example</groupId>
@@ -31,7 +32,21 @@
     </properties>
 
     <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.2.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
+            <dependency>
+                <groupId>com.github.lianjiatech</groupId>
+                <artifactId>retrofit-spring-boot-starter</artifactId>
+                <version>2.2.2</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>
