@@ -53,6 +53,7 @@ public class NumberSum_1 {
      * @return
      */
     public static int [] getIndexByHash(int [] nums,int target){
+        //key：数据i的值  value:i
         Map<Integer,Integer> map = Maps.newHashMap();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(target-nums[i])){
