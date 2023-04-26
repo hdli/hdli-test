@@ -14,7 +14,13 @@ public class IsValid_20 {
     }
 
 
-
+    /**
+     * 轻松掌握栈的基本操作
+     *      * 栈的所有操作都是基于栈顶进行的，这是它的特色
+     *      * https://blog.csdn.net/m0_52517879/article/details/123795249
+     * @param s
+     * @return
+     */
     public static boolean isValid(String s){
         if (s.length() % 2 != 0){
             return false;
