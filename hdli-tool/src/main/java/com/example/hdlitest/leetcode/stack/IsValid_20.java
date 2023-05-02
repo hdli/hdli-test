@@ -1,4 +1,4 @@
-package com.example.hdlitest.leetcode;
+package com.example.hdlitest.leetcode.stack;
 
 import java.util.Stack;
 

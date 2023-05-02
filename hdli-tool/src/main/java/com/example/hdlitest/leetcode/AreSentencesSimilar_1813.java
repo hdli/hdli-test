@@ -10,14 +10,21 @@ public class AreSentencesSimilar_1813 {
 
 
     public static void main(String[] args) {
-        String sentence1="My name is Haley";
-        String sentence2 = "My Haley";
+        String sentence1="a";
+        String sentence2 = "a aa a";
         System.out.println(areSentencesSimilar(sentence1, sentence2));
     }
 
+
+    /**
+     * 错误方法
+     * @param sentence1
+     * @param sentence2
+     * @return
+     */
     public static boolean solution(String sentence1, String sentence2){
         if (Objects.equals(sentence1,sentence2)){
-            return false;
+            return true;
         }
         //谁短操作谁 comparisonStr长度大于operationStr长度
         String operationStr = null;
@@ -40,6 +47,9 @@ public class AreSentencesSimilar_1813 {
         for (int i = 0; i < comparisonArray.length; i++) {
             String c = comparisonArray[i];
             //下标溢出报错
+            if (i > operationArray.length-1){
+                break;
+            }
             String o = operationArray[i];
             if (!Objects.equals(c,o)){
                 break;
@@ -49,7 +59,10 @@ public class AreSentencesSimilar_1813 {
         for (int i = comparisonArray.length-1; i >= 0; i--) {
             String c = comparisonArray[i];
             //下标溢出报错
-            String o = operationArray[i];
+            if (i-cha > operationArray.length-1){
+                break;
+            }
+            String o = operationArray[i-cha];
             if (!Objects.equals(c,o)){
                 break;
             }
@@ -72,7 +85,7 @@ public class AreSentencesSimilar_1813 {
         while (i < words1.length && i < words2.length && words1[i].equals(words2[i])) {
             i++;
         }
-        while (j < words1.length - i && j < words2.length - i && words1[words1.length - j - 1].equals(words2[words2.length - j - 1])) {
+        while (j < words1.length - i && j < words2.length - i && words1[words1.length  - 1 - j].equals(words2[words2.length - 1 - j])) {
             j++;
         }
         return i + j == Math.min(words1.length, words2.length);

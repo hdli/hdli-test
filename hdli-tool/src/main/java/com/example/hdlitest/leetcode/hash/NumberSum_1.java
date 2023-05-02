@@ -1,4 +1,4 @@
-package com.example.hdlitest.leetcode;
+package com.example.hdlitest.leetcode.hash;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Maps;
