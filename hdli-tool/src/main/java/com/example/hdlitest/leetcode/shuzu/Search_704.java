@@ -1,4 +1,4 @@
-package com.example.hdlitest.leetcode;
+package com.example.hdlitest.leetcode.shuzu;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

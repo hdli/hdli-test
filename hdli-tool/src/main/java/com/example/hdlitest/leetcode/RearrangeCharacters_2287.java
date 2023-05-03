@@ -21,10 +21,6 @@ public class RearrangeCharacters_2287 {
      * 从 s 中取出字符并重新排列，返回可以形成 target 的 最大 副本数。
      *
      *
-     *
-     * 来源：力扣（LeetCode）
-     * 链接：https://leetcode.cn/problems/rearrange-characters-to-make-target-string
-     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      * @param args
      */
     public static void main(String[] args) {

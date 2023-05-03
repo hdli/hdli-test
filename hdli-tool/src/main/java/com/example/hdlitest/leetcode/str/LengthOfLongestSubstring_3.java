@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 滑动
+ * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
  * @author luyi
  * @date 2023/4/30 9:51 PM
  */
@@ -45,6 +47,11 @@ public class LengthOfLongestSubstring_3 {
         return max;
     }
 
+    /**
+     * 正确答案
+     * @param s
+     * @return
+     */
     public static int lengthOfLongestSubstring2(String s) {
         if (s.length()==0){
             return 0;

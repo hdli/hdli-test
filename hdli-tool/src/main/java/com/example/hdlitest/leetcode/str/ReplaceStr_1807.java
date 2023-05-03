@@ -1,13 +1,10 @@
-package com.example.hdlitest.leetcode;
+package com.example.hdlitest.leetcode.str;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author luyi
@@ -41,6 +38,9 @@ public class ReplaceStr_1807 {
 
         System.out.println(JSON.toJSONString(split));
     }
+
+
+
 
     /**
      * 失败

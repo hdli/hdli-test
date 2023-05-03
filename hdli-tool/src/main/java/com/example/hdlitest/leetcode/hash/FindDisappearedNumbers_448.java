@@ -1,4 +1,4 @@
-package com.example.hdlitest.leetcode;
+package com.example.hdlitest.leetcode.hash;
 
 import com.google.common.primitives.Ints;
 
@@ -43,22 +43,32 @@ public class FindDisappearedNumbers_448 {
 
 
     /**
-     * 超时
+     * hash
      * @param nums
      * @return
      */
     public static List<Integer> findDisappearedNumbers(int[] nums) {
-        List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
-
+        Map<Integer,Integer> map = new HashMap<>(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i],i);
+        }
+        if (map.size() == nums.length){
+            return new ArrayList<>();
+        }
         List<Integer> result = new ArrayList<>(nums.length);
         for (int i = 1; i <= nums.length; i++) {
-            if (!list.contains(i)){
+            if (!map.containsKey(i)){
                 result.add(i);
             }
         }
         return result;
     }
 
+    /**
+     * hash
+     * @param nums
+     * @return
+     */
     public static List<Integer> findDisappearedNumbers2(int[] nums) {
         List<Integer> result = new ArrayList<>(nums.length);
         Set<Integer> set = new HashSet<>();

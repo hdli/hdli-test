@@ -7,7 +7,7 @@ package com.example.hdlitest.leetcode.shuzu;
 public class RemoveElement_27 {
 
     /**
-     *
+     * 移除数组元素
      * @param nums
      * @param val
      * @return
