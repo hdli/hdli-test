@@ -7,6 +7,8 @@ import com.google.common.collect.Lists;
 import java.util.*;
 
 /**
+ *
+ * 替换字符串中的括号内容
  * @author luyi
  * @date 2023/1/12 4:56 下午
  */

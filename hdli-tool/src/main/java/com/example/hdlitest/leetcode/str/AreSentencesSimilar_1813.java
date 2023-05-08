@@ -3,12 +3,17 @@ package com.example.hdlitest.leetcode.str;
 import java.util.Objects;
 
 /**
+ *
+ * 句子相似性3
  * @author luyi
  * @date 2023/1/16 11:35 下午
  */
 public class AreSentencesSimilar_1813 {
 
-
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String sentence1="a";
         String sentence2 = "a aa a";
