@@ -24,6 +24,7 @@ public class RemoveNthFromEnd_19 {
         while (fast.next != null){
             fast = fast.next;
             n-=1;
+            //因为加了一个虚拟头节点
             if (n <= -1){
                 slow = slow.next;
             }
