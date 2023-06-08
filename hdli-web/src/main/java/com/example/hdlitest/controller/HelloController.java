@@ -21,15 +21,13 @@ import java.util.Date;
 @Api(tags = "限流测试")
 public class HelloController {
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    @Autowired
-    private AccessLimitService accessLimitService;
 
 
     @ApiOperation(value = "测试接口", notes = "测试接口")
     @RequestMapping("/access")
     public String access(){
         //尝试获取令牌
-        if(accessLimitService.tryAcquire()){
+        if(AccessLimitService.tryAcquire()){
             //模拟业务执行500毫秒
             try {
                 Thread.sleep(500);

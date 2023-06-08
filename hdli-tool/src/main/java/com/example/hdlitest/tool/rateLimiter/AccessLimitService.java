@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
  * @version 1.0
  * @date 2019-12-12 22:30
  */
-@Service
 public class AccessLimitService {
 
     /**
@@ -23,13 +22,13 @@ public class AccessLimitService {
     /**每秒只发出5个令牌
      * 我们通过RateLimiter.create(5.0)配置的是每一秒5枚令牌，但是限流的时候发出的是6枚，改用其他值验证，也是实际的比配置的大1
      */
-    private RateLimiter rateLimiter = RateLimiter.create(5);
+    private static RateLimiter rateLimiter = RateLimiter.create(5);
 
     /**
      * 尝试获取令牌
      * @return
      */
-    public boolean tryAcquire(){
+    public static boolean tryAcquire(){
         //acquire() 从RateLimiter获取一个许可，该方法会被阻塞直到获取到请求
         return rateLimiter.tryAcquire();
     }
