@@ -64,7 +64,7 @@ public class LengthOfLongestSubstring_3 {
         for(int i = 0; i < s.length(); i ++){
             if(map.containsKey(s.charAt(i))){
                 //map.get():返回字符所对应的索引，当发现重复元素时，窗口左指针右移
-                //需要abba，取left最大
+                //需要abba，取left最大  取最大值是为了防止left指针倒回去
                 left = Math.max(left,map.get(s.charAt(i)) + 1);
             }
             //map.get('a')=0,因为map中只有第一个a的下标，然后更新left指针到原来left的的下一位

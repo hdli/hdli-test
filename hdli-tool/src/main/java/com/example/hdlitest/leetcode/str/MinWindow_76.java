@@ -10,7 +10,10 @@ import java.util.Map;
  */
 public class MinWindow_76 {
 
-
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String s = "ADOBECODEBANC";
         String t = "ABC";
