@@ -8,6 +8,13 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
+ *
+ *
+ *
+ * CallbackFilter可以实现不同的方法使用不同的回调方法
+ *
+ * CallbackFilter中的accept方法, 根据不同的method返回不同的值i, 这个值是在callbacks中的顺序, 就是调用了callbacks[i]
+ *
  * @author 李会东
  * @version 1.0
  * @date 2019-12-3 15:05
@@ -18,7 +25,7 @@ public class CglibProxy implements MethodInterceptor {
     public Object creatProxyedObj(Class<?> clazz){
 
         //代理类class文件存入本地磁盘
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "D:\\code");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/lihuidong/Desktop/");
 
         // 帮我们生成代理对象
         Enhancer enhancer = new Enhancer();
