@@ -1,5 +1,7 @@
 package com.example.hdlitest.collection.sort;
 
+import java.util.Arrays;
+
 /**
  * 冒泡排序
  *
@@ -12,9 +14,7 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {6, 3, 8, 2, 9, 1};
         System.out.println("排序前数组为：");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        System.out.println(Arrays.toString(arr));
         //这里for循环表示总共需要比较多少轮
         for (int i = 1; i < arr.length; i++) {
             //设定一个标记，若为true，则表示此次循环没有进行交换，也就是待排序列	已经有序，排序已经完成。
@@ -37,9 +37,7 @@ public class BubbleSort {
         }
         System.out.println();
         System.out.println("排序后的数组为：");
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
+        System.out.println(Arrays.toString(arr));
     }
 
 }

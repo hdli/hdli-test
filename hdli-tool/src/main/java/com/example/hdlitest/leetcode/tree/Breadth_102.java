@@ -12,6 +12,8 @@ import java.util.Queue;
 public class Breadth_102 {
 
     /**
+     *
+     * BFS
      * 层序遍历，广度优先搜索 102
      * 考虑：操作当前层，还需要保留下一层
      * 一开始想的是使用两个list，一个是当前层数据，一个是下一层，遍历当前层，生产下一层
@@ -41,5 +43,29 @@ public class Breadth_102 {
             }
             result.add(hierarchyResult);
         }
+    }
+
+
+    public List<List<Integer>> resList = new ArrayList<List<Integer>>();
+
+    /**
+     * DFS
+     * @param node
+     * @param deep
+     */
+    public void checkFun01(TreeNode node,int deep){
+        if (node == null){
+            return;
+        }
+        deep++;
+        if (resList.size() < deep) {
+            //当层级增加时，list的Item也增加，利用list的索引值进行层级界定
+            List<Integer> item = new ArrayList<Integer>();
+            resList.add(item);
+        }
+        resList.get(deep - 1).add(node.val);
+
+        checkFun01(node.left, deep);
+        checkFun01(node.right, deep);
     }
 }
