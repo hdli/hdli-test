@@ -59,6 +59,7 @@ public class Medium_FindBottomLeftValue_513 {
             return;
         }
         if (node.left == null && node.right == null){
+            //左侧优先，当前深度只取第一个
             if (depth > Deep){
                 value = node.val;
                 Deep = depth;

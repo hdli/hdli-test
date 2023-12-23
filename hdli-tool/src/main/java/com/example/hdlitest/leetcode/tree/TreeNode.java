@@ -134,4 +134,129 @@ public class TreeNode {
         }
     }
 
+    public void print2(){
+        print2(this);
+    }
+    public void print2 (TreeNode node) {
+        List<Integer> integers = TreeNode.qianXu(node);
+        for (Integer integer : integers) {
+            if (integer == null){
+                System.out.print("null,");
+            }else {
+                System.out.print(integer+",");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node9 = new TreeNode(9);
+        TreeNode node20 = new TreeNode(20);
+        TreeNode node15 = new TreeNode(15);
+        TreeNode node7 = new TreeNode(7);
+
+        node20.left = node15;
+        node20.right = node7;
+
+        node3.left = node9;
+        node3.right = node20;
+
+        List<Integer> integers2 = qianXu(node3);
+        System.out.print("前序数组:");
+        integers2.forEach((i)->{
+            System.out.print(i+",");
+        });
+        System.out.println();
+        List<Integer> integers = zhongXu(node3);
+        System.out.print("中序数组:");
+        integers.forEach((i)->{
+            System.out.print(i+",");
+        });
+        System.out.println();
+        List<Integer> integers1 = houXu(node3);
+        System.out.print("后序数组:");
+        integers1.forEach((i)->{
+            System.out.print(i+",");
+        });
+    }
+
+    /**
+     * 二叉树转 前序数组
+     * @param node
+     * @return
+     */
+    public static List<Integer> qianXu(TreeNode node){
+        List<Integer> result = new ArrayList<>();
+        qianRecursion(node,result);
+        return result;
+    }
+
+    private static void qianRecursion(TreeNode node,List<Integer> result){
+        if (node == null){
+            return;
+        }
+        //中
+        result.add(node.val);
+        //左
+        qianRecursion(node.left,result);
+
+        //右
+        qianRecursion(node.right,result);
+
+    }
+
+    /**
+     * 二叉树转 中序数组
+     * @param node
+     * @return
+     */
+    public static List<Integer> zhongXu(TreeNode node){
+        List<Integer> result = new ArrayList<>();
+        zhongRecursion(node,result);
+        return result;
+    }
+
+    private static void zhongRecursion(TreeNode node,List<Integer> result){
+        if (node == null){
+            return;
+        }
+        //左
+        if (node.left != null){
+            zhongRecursion(node.left,result);
+        }
+        //中
+        result.add(node.val);
+        //右
+        if (node.right != null){
+            zhongRecursion(node.right,result);
+        }
+    }
+
+    /**
+     * 二叉树转 后序数组
+     * @param node
+     * @return
+     */
+    public static List<Integer> houXu(TreeNode node){
+        List<Integer> result = new ArrayList<>();
+        houRecursion(node,result);
+        return result;
+    }
+
+    private static void houRecursion(TreeNode node,List<Integer> result){
+        if (node == null){
+            return;
+        }
+        //左
+        if (node.left != null){
+            houRecursion(node.left,result);
+        }
+        //右
+        if (node.right != null){
+            houRecursion(node.right,result);
+        }
+        //中
+        result.add(node.val);
+    }
+
 }
