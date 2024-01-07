@@ -66,7 +66,7 @@ public class HasCycle_141 {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow){
-                //先判断是右环的
+                //先判断是有环的
                 ListNode index1 = fast;
                 ListNode index2 = head;
                 while (!index1.equals(index2)){

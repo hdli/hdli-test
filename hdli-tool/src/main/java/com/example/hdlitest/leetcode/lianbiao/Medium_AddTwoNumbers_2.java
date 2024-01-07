@@ -4,7 +4,7 @@ package com.example.hdlitest.leetcode.lianbiao;
  * @author luyi
  * @date 2023/5/31 22:33
  */
-public class AddTwoNumbers_2 {
+public class Medium_AddTwoNumbers_2 {
 
 
     /**

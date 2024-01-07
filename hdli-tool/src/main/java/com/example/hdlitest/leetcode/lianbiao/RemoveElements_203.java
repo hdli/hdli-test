@@ -31,4 +31,33 @@ public class RemoveElements_203 {
         return virtualNode.next;
     }
 
+
+
+
+
+    public ListNode removeElements2(ListNode head, int val) {
+        if (head == null){
+            return null;
+        }
+        //处理非头节点
+        ListNode parentNode = head;
+        ListNode currentNode = head.next;
+        while (currentNode != null){
+            if (currentNode.val == val){
+                //删除节点
+                parentNode.next = currentNode.next;
+                //只需要移动当前节点
+                currentNode = currentNode.next;
+            }else {
+                parentNode = currentNode;
+                currentNode = currentNode.next;
+            }
+        }
+        //删头节点
+        if (head.val == val){
+            return head.next;
+        }
+        return head;
+    }
+
 }
