@@ -1,6 +1,7 @@
 package com.example.hdlitest.leetcode.tree;
 
 /**
+ * 完全二叉树的 特性
  * @author luyi
  * @date 2024/1/7 20:31
  */
