@@ -1,6 +1,7 @@
 package com.example.hdlitest.leetcode.huisu;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
 public class CombinationSum3_216 {
 
     List<List<Integer>> result = new ArrayList<>();
-    List<Integer> temp = new ArrayList<>();
+    LinkedList<Integer> temp = new LinkedList<>();
 
     public List<List<Integer>> combinationSum3(int k, int n) {
 
@@ -38,7 +39,7 @@ public class CombinationSum3_216 {
             curSum+=i;
             t(targetSum,k,i+1,curSum);
             curSum-=i;
-            temp.remove(temp.size()-1);
+            temp.removeLast();
         }
     }
 }
