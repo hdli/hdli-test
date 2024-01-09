@@ -54,6 +54,13 @@ public class Combine_77 {
             return;
         }
         //剪枝操作
+        /**
+         * 1、已经选择的元素个数：temp.size();
+         * 2、所需需要的元素个数为: k - temp.size();
+         * 3、列表中剩余元素（n-i） >= 所需需要的元素个数（k - temp.size()）
+         * 4、在集合n中至多要从该起始位置 : i <= n - (k - path.size()) + 1，开始遍历
+         * 为什么有个+1呢，因为包括起始位置，我们要是一个左闭的集合。
+         */
         for(int i = startIndex ; i<= n-(k-temp.size() + 1);i++){
             temp.add(i);
             t2(n,k,i+1,result,temp);
