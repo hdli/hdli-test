@@ -24,7 +24,12 @@ public class IsAnagram_242 {
         System.out.println(anagram);
     }
 
-
+    /**
+     * 使用Map集合
+     * @param s
+     * @param t
+     * @return
+     */
     public static boolean isAnagram(String s, String t) {
         if (s.length() != t.length()){
             return false;
