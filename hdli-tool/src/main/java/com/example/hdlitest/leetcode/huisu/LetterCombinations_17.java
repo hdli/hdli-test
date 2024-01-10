@@ -24,7 +24,6 @@ public class LetterCombinations_17 {
         map.put('9',"wxyz");
     }
 
-    String s = "";
     List<String> result = new ArrayList<>();
 
 
@@ -32,7 +31,8 @@ public class LetterCombinations_17 {
         if (digits == null || digits.equals("")){
             return new ArrayList<>();
         }
-        t(digits,0);
+        StringBuilder sb = new StringBuilder();
+        t(digits,0,sb);
         return result;
     }
 
@@ -52,9 +52,9 @@ public class LetterCombinations_17 {
      * @param digits
      * @param index   代表了需要遍历的集合如：digits=23 当 index = 0 是遍历 abc,当index = 1时遍历def
      */
-    private void t(String digits,Integer index){
+    private void t(String digits,Integer index,StringBuilder sb){
         if (index == digits.length()){
-            result.add(new String(s));
+            result.add(sb.toString());
             return;
         }
         //获取每一层要遍历的对象
@@ -62,9 +62,9 @@ public class LetterCombinations_17 {
 
         //字符串s的操作可以隐藏的，为了更好的理解回溯保留
         for (int i = 0; i < s1.length(); i++) {
-            s = s+s1.charAt(i);
-            t(digits,index+1);
-            s = s.substring(0,s.length()-1);
+            sb.append(s1.charAt(i));
+            t(digits,index+1,sb);
+            sb.deleteCharAt(s1.length() - 1);
             //t(digits,index+1,s+s1.charAt(i))
         }
     }

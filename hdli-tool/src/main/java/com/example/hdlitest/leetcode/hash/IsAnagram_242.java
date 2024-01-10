@@ -11,7 +11,12 @@ import java.util.Map;
  */
 public class IsAnagram_242 {
 
-
+    /**
+     * 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+     *
+     * 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+     * @param args
+     */
     public static void main(String[] args) {
         String s = "aacc";
         String t = "ccac";
@@ -37,6 +42,32 @@ public class IsAnagram_242 {
             }
         }
 
+        return true;
+    }
+
+    /**
+     * 使用数组
+     * 因为s和t都是小写字母，
+     * 需要把字符映射到数组也就是哈希表的索引下标上，因为字符a到字符z的ASCII是26个连续的数值，所以字符a映射为下标0，相应的字符z映射为下标25。
+     * @param s
+     * @param t
+     * @return
+     */
+    public boolean isAnagram2(String s, String t) {
+        int [] re = new int[26];
+        for(int i = 0;i<s.length();i++){
+            re[s.charAt(i)-'a']++;
+        }
+        for(int i=0;i<t.length();i++){
+            if(re[t.charAt(i)-'a']-- < 0){
+                return false;
+            }
+        }
+        for(int i = 0;i<26;i++){
+            if(re[i] != 0){
+                return false;
+            }
+        }
         return true;
     }
 }
