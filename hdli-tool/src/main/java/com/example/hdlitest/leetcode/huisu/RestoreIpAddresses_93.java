@@ -76,5 +76,13 @@ public class RestoreIpAddresses_93 {
         return true;
     }
 
+    private boolean check(String a){
+        if (a.startsWith("0")){
+            return false;
+        }
+        int integer = Integer.parseInt(a);
+        return integer <= 255;
+    }
+
 
 }

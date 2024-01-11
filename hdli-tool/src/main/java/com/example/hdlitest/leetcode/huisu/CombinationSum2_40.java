@@ -30,7 +30,8 @@ public class CombinationSum2_40 {
             result.add(new ArrayList<>(temp));
         }
         for (int i = startIndex; i < candidates.length; i++) {
-            //使用标记数组
+            //出现重复节点，同层的第一个节点已经被访问过，所以直接跳过
+            //使用标记数组 candidates[i] == candidates[i-1] 但是 这个可能是数组的两个相同的值，如果userd[i-1]==0 代表上一个元数据没有用
             if (i > 0 && candidates[i] == candidates[i-1] && userd[i-1]==0){
                 continue;
             }

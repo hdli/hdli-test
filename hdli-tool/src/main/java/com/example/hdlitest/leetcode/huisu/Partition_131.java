@@ -1,6 +1,7 @@
 package com.example.hdlitest.leetcode.huisu;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,6 +25,11 @@ public class Partition_131 {
         return result;
     }
 
+    /**
+     *
+     * @param s
+     * @param startIndex 代表本次切割开始位置，i的移动决定了切割的end位置【startIndex,i】
+     */
     private void recursion(String s,int startIndex){
         //如果起始位置大于s的大小，说明找到了一组分割方案
         if (startIndex >= s.length()){
@@ -35,6 +41,7 @@ public class Partition_131 {
             if (isPalindromic(s,startIndex,i)){
                 temp.addLast(s.substring(startIndex,i+1));
             }else {
+                //efe ,当前截取的不是，不代表后序截取的不是
                 continue;
             }
             //起始位置后移，保证不重复
