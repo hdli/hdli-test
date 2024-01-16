@@ -9,7 +9,7 @@ import java.util.List;
  * @author luyi
  * @date 2023/5/2 5:11 PM
  */
-public class CombinationSum3_216 {
+public class Zuhe_CombinationSum3_216 {
 
     List<List<Integer>> result = new ArrayList<>();
     LinkedList<Integer> temp = new LinkedList<>();

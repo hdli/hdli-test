@@ -1,7 +1,6 @@
 package com.example.hdlitest.leetcode.huisu;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,14 +8,14 @@ import java.util.List;
  * @author luyi
  * @date 2023/5/13 9:42 PM
  */
-public class Partition_131 {
+public class Fenge_Partition_131 {
 
     List<List<String>> result = new ArrayList<>();
     LinkedList<String> temp = new LinkedList<>();
 
     public static void main(String[] args) {
         String s = "aab";
-        Partition_131 partition131 = new Partition_131();
+        Fenge_Partition_131 partition131 = new Fenge_Partition_131();
         partition131.partition(s);
     }
 

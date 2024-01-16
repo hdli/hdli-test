@@ -9,7 +9,7 @@ import java.util.Map;
  * @author luyi
  * @date 2023/5/11 11:15 PM
  */
-public class combinationSum_39 {
+public class Zuhe_CombinationSum_39 {
 
     List<List<Integer>> result = new ArrayList<>();
     List<Integer> temp = new ArrayList<>();

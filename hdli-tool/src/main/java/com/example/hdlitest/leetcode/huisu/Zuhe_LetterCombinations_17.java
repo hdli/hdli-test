@@ -10,7 +10,7 @@ import java.util.Map;
  * @author luyi
  * @date 2023/5/2 3:07 PM
  */
-public class LetterCombinations_17 {
+public class Zuhe_LetterCombinations_17 {
     static Map<Character,String> map = new HashMap();
 
     static {
