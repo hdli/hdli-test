@@ -22,6 +22,7 @@ public class Medium_MaxProfit_122 {
      * 相当于(prices[3] - prices[2]) + (prices[2] - prices[1]) + (prices[1] - prices[0])。
      *此时就是把利润分解为每天为单位的维度，而不是从 0 天到第 3 天整体去考虑！
      *
+     *  贪心只收集每天的正利润
      *  把每一天的利润都算出来 prices[i]-prices[i-1]，正的加起来 就是最大利润
      *   7   1   5    3    6     4
      *    -6   4   -2    3    -2
@@ -33,6 +34,7 @@ public class Medium_MaxProfit_122 {
     public int maxProfit(int[] prices) {
         int result = 0;
         for(int i = 1;i<prices.length;i++){
+            //贪心只收集每天的正利润
             result += Math.max(prices[i]-prices[i-1],0);
         }
         return result;
