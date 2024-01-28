@@ -49,7 +49,7 @@ public class BagProblem_FindTargetSumWays_494 {
         if (left < 0){
             left = -left;
         }
-        //
+        //问题到这里就变成了集合中所有元素 装满left有多少中方法
         int [] dp = new int[left+1];
         dp[0] = 1;
         for (int i = 0; i < nums.length; i++) {
