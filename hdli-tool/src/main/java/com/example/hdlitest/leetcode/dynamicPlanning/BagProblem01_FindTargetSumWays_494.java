@@ -4,7 +4,7 @@ package com.example.hdlitest.leetcode.dynamicPlanning;
  * @author luyi
  * @date 2024/1/28 18:21
  */
-public class BagProblem_FindTargetSumWays_494 {
+public class BagProblem01_FindTargetSumWays_494 {
     /**
      *  目标和:给你一个非负整数数组 nums 和一个整数 target 。
      *

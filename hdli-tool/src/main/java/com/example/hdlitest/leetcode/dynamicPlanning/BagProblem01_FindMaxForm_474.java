@@ -4,7 +4,7 @@ package com.example.hdlitest.leetcode.dynamicPlanning;
  * @author luyi
  * @date 2024/1/30 00:20
  */
-public class BagProblem_FindMaxForm_474 {
+public class BagProblem01_FindMaxForm_474 {
 
     /**
      * 一和零:

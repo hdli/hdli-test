@@ -6,12 +6,12 @@ import java.util.Arrays;
  * @author luyi
  * @date 2024/1/28 16:17
  */
-public class BagProblem_CanPartition_416 {
+public class BagProblem01_CanPartition_416 {
 
 
     public static void main(String[] args) {
         int [] a = {1,5,11,5};
-        BagProblem_CanPartition_416 canPartition416 = new BagProblem_CanPartition_416();
+        BagProblem01_CanPartition_416 canPartition416 = new BagProblem01_CanPartition_416();
         boolean b = canPartition416.canPartition(a);
         System.out.println(b);
     }

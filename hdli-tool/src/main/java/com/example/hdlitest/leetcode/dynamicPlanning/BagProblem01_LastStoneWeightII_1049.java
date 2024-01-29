@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author luyi
  * @date 2024/1/28 17:25
  */
-public class BagProblem_LastStoneWeightII_1049 {
+public class BagProblem01_LastStoneWeightII_1049 {
 
     /**
      * 最后一块石头的重量 II:
