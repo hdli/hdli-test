@@ -87,5 +87,32 @@ public class BagProblem01_CanPartition_416 {
         return dp[target] == target;
     }
 
+    public boolean canPartitioDp2(int[] nums){
+        int sum = Arrays.stream(nums).sum();
+        int a = sum%2;
+        if (a != 0){
+            //正整数 的 非空 数组 ,数组总和是奇数，那肯定返回false
+            return false;
+        }
+        int target = sum/2;
+        boolean [] dp = new boolean[target+1];
+        //初始化第0行
+        dp[0] = true;
+        if (nums[0] <= target){
+            dp[nums[0]] = true;
+        }
+        //从第1行开始遍历
+        for (int i = 1; i < nums.length;i++){
+            //倒着遍历，因为当前行遍历依赖上一行左边的值
+            for (int j = target;j >= nums[i];j--){
+                dp[j] = dp[j] || dp[j-nums[i]];
+            }
+            if (dp[target]){
+                return true;
+            }
+        }
+        return dp[target];
+    }
+
 
 }

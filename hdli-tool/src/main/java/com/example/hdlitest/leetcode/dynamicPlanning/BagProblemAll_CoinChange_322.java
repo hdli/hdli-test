@@ -43,7 +43,7 @@ public class BagProblemAll_CoinChange_322 {
      * @return
      */
     public int coinChange(int[] coins, int amount) {
-        int max = Integer.MAX_VALUE;
+        int max = amount+1;
         int[] dp = new int[amount + 1];
         //初始化dp数组为最大值
         for (int j = 0; j < dp.length; j++) {
@@ -55,12 +55,20 @@ public class BagProblemAll_CoinChange_322 {
             //正序遍历：完全背包每个硬币可以选择多次
             for (int j = coins[i]; j <= amount; j++) {
                 //只有dp[j-coins[i]]不是初始最大值时，该位才有选择的必要
-                if (dp[j - coins[i]] != max) {
+//                if (dp[j - coins[i]] != max) {
                     //选择硬币数目最小的情况
                     dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
-                }
+//                }
             }
         }
         return dp[amount] == max ? -1 : dp[amount];
+    }
+
+
+    public static void main(String[] args) {
+        int [] a = {2};
+        int amount =  3;
+        BagProblemAll_CoinChange_322 coinChange322 = new BagProblemAll_CoinChange_322();
+        int i = coinChange322.coinChange(a, amount);
     }
 }
