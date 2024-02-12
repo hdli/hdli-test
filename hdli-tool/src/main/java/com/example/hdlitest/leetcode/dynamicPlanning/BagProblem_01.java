@@ -76,9 +76,9 @@ public class BagProblem_01 {
         for (int i = 0; i < weight.length;i++){
             dp[i][0] = 0;
         }
-        //dp数组如何初始化：二维数组的第一排，i=0 放物品0，从j=物品0的重量开始，都需的j(背包重量都可以放下)，初始化为物品0的重量
+        //dp数组如何初始化：二维数组的第一排，i=0 放物品0，从j=物品0的重量开始，都需的j(背包重量都可以放下)，初始化为物品0的价值
         for (int j = weight[0]; j <= bagSize;j++){
-            dp[0][j] = weight[0];
+            dp[0][j] = value[0];
         }
         //递推公式 每个物品都只有俩选项，放 与 不放
         for (int i = 1; i < weight.length;i++){   //商品
