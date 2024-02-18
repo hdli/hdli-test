@@ -11,6 +11,8 @@ public class Zixulie7_392 {
 
     /**
      * 判断子序列 简单题
+     *
+     * 双指针法
      * @param s
      * @param t
      * @return
