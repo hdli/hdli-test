@@ -1,6 +1,7 @@
 package com.example.hdlitest.leetcode.hash;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -84,7 +85,7 @@ public class TopKFrequent_347 {
 
     /**
      * 桶排序法
-     *
+     * <p>
      * 首先依旧使用哈希表统计频率，统计完成后，创建一个数组，将频率作为数组下标，对于出现频率不同的数字集合，存入对应的数组下标即可
      *
      * @param nums
@@ -115,6 +116,32 @@ public class TopKFrequent_347 {
             res.addAll(list[i]);
         }
         return res.toArray();
+    }
+
+
+    /**
+     * 使用java自带的排序，不合规矩
+     * @param nums
+     * @param k
+     * @return
+     */
+    public int[] topKFrequent4(int[] nums, int k){
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i:nums){
+            map.put(i,map.getOrDefault(i, 0)+1);
+        }
+        List<Integer> collect = map.entrySet().stream().sorted((a, b) -> {
+            if (a.getValue() >= b.getValue()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }).map(Map.Entry::getKey).collect(Collectors.toList());
+        int [] res = new int[k];
+        for (int i = 0;i<k;i++){
+            res[i] = collect.get(i);
+        }
+        return res;
     }
 
 }
