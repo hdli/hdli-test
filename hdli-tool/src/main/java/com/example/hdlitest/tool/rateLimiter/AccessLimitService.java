@@ -32,4 +32,14 @@ public class AccessLimitService {
         //acquire() 从RateLimiter获取一个许可，该方法会被阻塞直到获取到请求
         return rateLimiter.tryAcquire();
     }
+
+
+    public static void main(String[] args) {
+        RateLimiter rateLimiter = RateLimiter.create(5);
+        while(true){
+            rateLimiter.acquire(10);
+            System.out.println("获取令牌");
+        }
+
+    }
 }

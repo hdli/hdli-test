@@ -64,7 +64,7 @@ public class Zuhe_LetterCombinations_17 {
         for (int i = 0; i < s1.length(); i++) {
             sb.append(s1.charAt(i));
             t(digits,index+1,sb);
-            sb.deleteCharAt(s1.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
             //t(digits,index+1,s+s1.charAt(i))
         }
     }

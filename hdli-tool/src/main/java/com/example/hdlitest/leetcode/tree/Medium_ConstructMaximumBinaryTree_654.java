@@ -56,21 +56,25 @@ public class Medium_ConstructMaximumBinaryTree_654 {
     }
 
 
-    public TreeNode findNode2(int[] nums,int leftIndex,int rightIndex){
-        if (rightIndex - leftIndex < 1){
+    public TreeNode findNode2(int[] nums,int start,int end){
+        if (end - start < 1){
             // 没有元素了
             return null;
         }
-        if (rightIndex - leftIndex == 1){
+        if (end - start == 1){
             // 只有一个元素
-            return new TreeNode(nums[leftIndex]);
+            return new TreeNode(nums[start]);
         }
 
-        int maxValueIndexByRange = getMaxValueIndexByRange(nums, leftIndex, rightIndex);
+        int maxValueIndexByRange = getMaxValueIndexByRange(nums, start, end);
 
         TreeNode root = new TreeNode(nums[maxValueIndexByRange]);
-        root.left = findNode2(nums,leftIndex,maxValueIndexByRange);
-        root.right = findNode2(nums,maxValueIndexByRange+1,rightIndex);
+        int leftStart = start;
+        int leftEnd = maxValueIndexByRange;
+        int rightStart = maxValueIndexByRange+1;
+        int rightEnd = end;
+        root.left = findNode2(nums,leftStart,leftEnd);
+        root.right = findNode2(nums,rightStart,rightEnd);
 
         return root;
     }

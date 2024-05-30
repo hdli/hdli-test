@@ -11,12 +11,8 @@ public class Easy_IsBalanced_110 {
 
 
     public boolean isBalanced(TreeNode root) {
-        if (root == null){
-            return false;
-        }
-        int l = getHeight(root.left);
-        int r = getHeight(root.right);
-        if ((l -r) > 1 || (l-r) < -1){
+        int l = getHeight(root);
+        if (l == -1){
             return false;
         }
         return true;
@@ -28,7 +24,17 @@ public class Easy_IsBalanced_110 {
             return 0;
         }
         int l = getHeight(node.left);
+        if (l == -1){
+            return -1;
+        }
         int r = getHeight(node.right);
+        if (r == -1){
+            return -1;
+        }
+        int result = Math.abs(l-r);
+        if (result > 1){
+            return -1;
+        }
         return Math.max(l,r)+1;
     }
 

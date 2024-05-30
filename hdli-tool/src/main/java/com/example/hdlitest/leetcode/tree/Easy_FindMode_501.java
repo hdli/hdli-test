@@ -23,6 +23,7 @@ public class Easy_FindMode_501 {
      */
     public int[] findMode(TreeNode root) {
         test(root);
+
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 

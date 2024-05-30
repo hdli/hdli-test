@@ -19,7 +19,13 @@ public class Zuhe_CombinationSum_39 {
         return result;
     }
 
-
+    /**
+     * 正确解答
+     * @param candidates
+     * @param target
+     * @param curSum
+     * @param startIndex
+     */
     private void recursion2(int[] candidates, int target,int curSum,int startIndex){
         if (curSum > target){
             return;
@@ -32,7 +38,7 @@ public class Zuhe_CombinationSum_39 {
             int value = candidates[i];
             curSum += value;
             temp.add(value);
-            //从当前位置之后获取包含本身可以在获取一次 所有下一层startIndex=i
+            //关键 i ,从当前位置之后获取包含本身可以在获取一次 所有下一层startIndex=i
             recursion2(candidates,target,curSum,i);
             temp.remove(temp.size()-1);
             curSum -= value;
