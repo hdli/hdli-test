@@ -32,7 +32,8 @@ public class BagProblem_01 {
         int[] weight = {1,3,4};
         int[] value = {15,20,30};
         int bagSize = 4;
-        test(weight, value,bagSize,0);
+//        test(weight, value,bagSize,0);
+        dp(weight,value,bagSize);
     }
     static int maxValue = 0;
     static int currentValue = 0;
@@ -49,7 +50,7 @@ public class BagProblem_01 {
             maxValue = Math.max(maxValue, currentValue);
             return;
         }
-        for (int i = startIndex; i <= weight.length; i++){
+        for (int i = startIndex; i < weight.length; i++){
             if (weight[i] > bagSize){
                 continue;
             }
@@ -68,7 +69,7 @@ public class BagProblem_01 {
      * @param value
      * @param bagSize
      */
-    private void dp(int[] weight,int[] value,int bagSize){
+    private static void dp(int[] weight,int[] value,int bagSize){
         //确定dp数组以及下标的含义:dp[i][j] 表示从下标为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大是多少。
         int [][] dp = new int[weight.length][bagSize+1];
 
@@ -105,7 +106,7 @@ public class BagProblem_01 {
                 }
             }
         }
-
+        printDp(dp);
      }
 
 
@@ -120,7 +121,7 @@ public class BagProblem_01 {
      * @param value
      * @param bagSize
      */
-    private void dp2(int[] weight,int[] value,int bagSize){
+    private static void dp2(int[] weight,int[] value,int bagSize){
         //定义dp数组：dp[j]表示背包容量为j时，能获得的最大价值
         int [] dp = new int[bagSize+1];
         dp[0]=0;
@@ -130,7 +131,70 @@ public class BagProblem_01 {
             for (int j = bagSize; j>= weight[i];j--){
                 dp[j] = Math.max(dp[j],dp[j-weight[i]]+value[i]);
             }
+            printDp(dp);
         }
+    }
+
+    /**
+     * 完全背包的动态规划
+     * 物品无限个
+     * @param weight
+     * @param value
+     * @param bagSize
+     */
+    private static void dp3(int[] weight,int[] value,int bagSize){
+        int [] dp = new int[bagSize+1];
+        dp[0]=0;
+        for (int i = 0; i < weight.length;i++){
+            for (int j = weight[i];j <= bagSize;j++){
+                dp[j] = Math.max(dp[j],dp[j-weight[i]]+value[i]);
+            }
+            printDp(dp);
+        }
+    }
+
+    /**
+     * 完全背包
+     * 二维数据 与 01背包的差异 第一行的初始化
+     * @param weight
+     * @param value
+     * @param bagSize
+     */
+    private static void dp4(int[] weight,int[] value,int bagSize){
+        int [][] dp = new int[weight.length][bagSize+1];
+        //初始化第一行
+        for (int j = weight[0];j<= bagSize;j++){
+            int b = j/weight[0];
+            dp[0][j] = b*value[0];
+        }
+        for(int i =1 ;i < weight.length;i++){
+            for (int j = 1;j<= bagSize;j++){
+                if (j < weight[i]){
+                    dp[i][j] = dp[i-1][j];
+                }else {
+                    dp[i][j] = Math.max(dp[i-1][j],dp[i-1][j-weight[i]]+value[i]);
+                }
+            }
+        }
+
+        printDp(dp);
+    }
+
+
+    public static void printDp(int [][] dp){
+        for (int i = 0;i<dp.length;i++){
+            for (int j = 0;j<dp[0].length;j++){
+                System.out.print(dp[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printDp(int [] dp){
+        for (int i = 0;i<dp.length;i++){
+            System.out.print(dp[i]+" ");
+        }
+        System.out.println();
     }
 
 }

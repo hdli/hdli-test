@@ -4,9 +4,12 @@ import com.example.Hello;
 import com.example.hdlitest.spring_event.event.TaskFinishEvent2;
 import com.example.hdlitest.spring_event.publisher.EventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author 李会东
@@ -21,6 +24,18 @@ public class TestController {
 
     @Autowired
     private Hello hello;
+
+
+    @Value("${app.order.tenant.white.list}")
+    private List<String> list;
+
+
+
+    @RequestMapping("/test11111")
+    public String test2(){
+        list.forEach(System.out::println);
+        return "SUCCSCC";
+    }
 
     /**
      * 测试 注解 切面实现重试

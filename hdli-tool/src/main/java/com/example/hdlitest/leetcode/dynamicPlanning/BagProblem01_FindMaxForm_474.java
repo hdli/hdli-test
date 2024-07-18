@@ -24,7 +24,9 @@ public class BagProblem01_FindMaxForm_474 {
         //dp[i][j]表示i个0和j个1时的最大子集
         int [][] dp = new int[m+1][n+1];
         int zeroNum,oneNum;
+        //遍历物品
         for (String str : strs){
+            //每个字符串的0和1个数，就相当于 这个物品的重量
             zeroNum = 0;
             oneNum = 0;
             for(char c : str.toCharArray()){
@@ -34,6 +36,7 @@ public class BagProblem01_FindMaxForm_474 {
                     oneNum++;
                 }
             }
+            //遍历背包 m和n顺序可以随便
             for (int i = m; i >= zeroNum;i--){
                 for (int j = n; j >= oneNum;j--){
                     dp[i][j] = Math.max(dp[i][j],dp[i-zeroNum][j-oneNum]+1);
