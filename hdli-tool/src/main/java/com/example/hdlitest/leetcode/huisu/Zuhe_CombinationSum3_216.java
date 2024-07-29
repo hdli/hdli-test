@@ -14,6 +14,24 @@ public class Zuhe_CombinationSum3_216 {
     List<List<Integer>> result = new ArrayList<>();
     LinkedList<Integer> temp = new LinkedList<>();
 
+    private void recall(int k, int n,int startIndex,int sum){
+        if (temp.size() == k && n == sum){
+            result.add(new ArrayList<>(temp));
+            return;
+        }
+        for (int i = startIndex;i <= 9;i++){
+            if (temp.size() > k || sum > n){
+                return;
+            }
+            temp.add(i);
+            recall(k,n,i+1,sum+i);
+            temp.removeLast();
+        }
+    }
+
+
+
+
     public List<List<Integer>> combinationSum3(int k, int n) {
 
 

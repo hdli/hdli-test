@@ -1,6 +1,9 @@
 package com.example.hdlitest.leetcode.huisu;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,6 +12,29 @@ import java.util.List;
  * @date 2023/5/2 3:57 PM
  */
 public class Zuhe_Combine_77 {
+
+
+
+
+
+
+    static List<List<Integer>> result = new ArrayList<>();
+    static LinkedList<Integer> path = new LinkedList<>();
+
+
+    public static void recall(int n,int k,int startIndex){
+        if (k == 0){
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = startIndex;i <= n;i++){
+            path.add(i);
+            recall(n,k-1,i+1);
+            path.removeLast();
+        }
+    }
+
+
 
     /**
      *
@@ -21,7 +47,8 @@ public class Zuhe_Combine_77 {
         int n = 4;
         int k = 2;
 
-        combine(n,k);
+        recall(n,k,1);
+        System.out.println(result);
     }
 
 
@@ -47,6 +74,14 @@ public class Zuhe_Combine_77 {
         }
     }
 
+    /**
+     * 优化 剪枝
+     * @param n
+     * @param k
+     * @param startIndex
+     * @param result
+     * @param temp
+     */
     private static void t2(int n, int k, int startIndex, List<List<Integer>> result, List<Integer> temp){
         if(temp.size() == k){
             result.add(new ArrayList<>(temp));

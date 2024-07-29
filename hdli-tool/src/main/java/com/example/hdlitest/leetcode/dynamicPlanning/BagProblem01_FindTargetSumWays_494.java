@@ -1,5 +1,7 @@
 package com.example.hdlitest.leetcode.dynamicPlanning;
 
+import java.util.Arrays;
+
 /**
  * @author luyi
  * @date 2024/1/28 18:21
@@ -27,7 +29,7 @@ public class BagProblem01_FindTargetSumWays_494 {
      * @param target
      * @return
      */
-    public int findTargetSumWays(int[] nums, int target) {
+    public static int findTargetSumWays(int[] nums, int target) {
         //+号 部分 总和 left,  -号部分 总和 right  那么
         // left+right = sum
         // left-right = target
@@ -58,5 +60,53 @@ public class BagProblem01_FindTargetSumWays_494 {
             }
         }
         return dp[left];
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,1,1,1,1};
+        int target = 3;
+        int target1 = getTarget(nums, target);
+        if (target1 == 0){
+            return;
+        }
+        int targetSumWays =findTargetSumWays2(nums, target1);
+        System.out.println(targetSumWays);
+
+        System.out.println(findTargetSumWays(nums, target));
+    }
+
+
+    /**
+     * 集合中，多少种可能 填满left
+     * @param nums
+     * @param target
+     */
+    private static int findTargetSumWays2(int[] nums, int target){
+
+        int [][] dp = new int[nums.length][target+1];
+        dp[0][0] = 1;
+        if (nums[0] <= target){
+            dp[0][nums[0]] = 1;
+        }
+        for (int i = 1;i < nums.length;i++){
+            for (int j = 0;j <= target;j++){
+                if (j < nums[i]){
+                    dp[i][j] = dp[i-1][j];
+                }else {
+                    dp[i][j] = dp[i-1][j] + dp[i-1][j-nums[i]];
+                }
+            }
+        }
+        BagProblem_01.printDp(dp);
+        return dp[nums.length-1][target];
+    }
+
+
+    private static int getTarget(int[] nums, int target){
+        int sum = Arrays.stream(nums).sum();
+        if ((sum-target)%2 == 1){
+            return 0;
+        }
+        return  (sum-target)/2;
     }
 }
