@@ -1,9 +1,6 @@
 package com.example.hdlitest.leetcode.huisu;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author luyi
@@ -40,6 +37,11 @@ public class Ziji_SubsetsWithDup_90 {
         return result;
     }
 
+    /**
+     * 利用全局变量used来记录元素是否被使用过
+     * @param nums
+     * @param startIndex
+     */
     private void subsetsWithDupHelper(int[] nums, int startIndex){
         result.add(new ArrayList<>(path));
         if (startIndex >= nums.length){
@@ -54,6 +56,27 @@ public class Ziji_SubsetsWithDup_90 {
             subsetsWithDupHelper(nums, i + 1);
             path.removeLast();
             used[i] = false;
+        }
+    }
+
+    /**
+     * 这种方式需要创建很多的集合，
+     * @param nums
+     * @param startIndex
+     */
+    private void subsetsWithDupHelper2(int[] nums, int startIndex){
+        result.add(new ArrayList<>(path));
+
+        Set<Integer> set = new HashSet<>();
+        for (int i = startIndex; i < nums.length; i++){
+            //当前元素和前一个元素相同，并且前一个元素已经添加过了，则跳过
+            if (i > 0 && nums[i] == nums[i - 1] && set.contains(nums[i])){
+                continue;
+            }
+            set.add(nums[i]);
+            path.add(nums[i]);
+            subsetsWithDupHelper(nums, i + 1);
+            path.removeLast();
         }
     }
 
