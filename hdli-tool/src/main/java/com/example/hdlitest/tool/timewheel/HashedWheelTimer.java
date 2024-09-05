@@ -98,7 +98,13 @@ public class HashedWheelTimer implements Timer{
     }
 
 
-
+    /**
+     * 将处理任务 封装成HashedWheelTimerFuture 并放到waitingTasks 等在执行任务队列中
+     * @param task
+     * @param delay
+     * @param unit
+     * @return
+     */
     @Override
     public TimerFuture schedule(TimerTask task, long delay, TimeUnit unit) {
         long targetTime = System.currentTimeMillis() + unit.toMillis(delay);
