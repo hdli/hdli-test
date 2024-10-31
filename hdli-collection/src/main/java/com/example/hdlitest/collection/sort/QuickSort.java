@@ -1,6 +1,7 @@
 package com.example.hdlitest.collection.sort;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * 快速排序
@@ -14,7 +15,8 @@ public class QuickSort {
         int[] arr = {6, 3, 8, 2, 9, 1};
         System.out.println("排序前数组为：");
         System.out.println(Arrays.toString(arr));
-        quickSort(arr,0,arr.length-1);
+//        quickSort(arr,0,arr.length-1);
+        quickSort2(arr);
         System.out.println("排序后数组为：");
         System.out.println(Arrays.toString(arr));
     }
@@ -25,6 +27,33 @@ public class QuickSort {
             int mid = partition2(arr,left,right);
             quickSort(arr,left,mid-1);
             quickSort(arr,mid+1,right);
+        }
+    }
+
+    /**
+     * 非递归
+     * 快速排序我们知道在排序中因为是对区间的子区间进行单趟排序，循环直到区间是一个数，我么们是利用递归来处理，
+     * 可是这也引发了一个问题：数据足够大，递归的深度太深，就会出现栈溢出的问题，此时排序就崩了，
+     * 因此递归有它的好处，也存在他的隐患。
+     * @param arr
+     */
+    public static void quickSort2(int[] arr){
+        if (arr.length == 0 || arr.length == 1){
+            return;
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+        stack.push(arr.length-1);
+        while (!stack.isEmpty()){
+            int r = stack.pop();
+            int l = stack.pop();
+            if (l < r){
+                int i = partition2(arr, l, r);
+                stack.push(l);
+                stack.push(i-1);
+                stack.push(i+1);
+                stack.push(r);
+            }
         }
     }
 
