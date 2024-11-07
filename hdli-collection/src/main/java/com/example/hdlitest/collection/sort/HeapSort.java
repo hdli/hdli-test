@@ -1,6 +1,7 @@
 package com.example.hdlitest.collection.sort;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * 堆排序
@@ -20,7 +21,7 @@ public class HeapSort {
      */
     public static void main(String[] args) {
         int [] nums = new int[]{2,5,3,9,6,7,1};
-        heapSort(nums);
+        javaHeapTool(nums);
         System.out.println(Arrays.toString(nums));
     }
 
@@ -98,5 +99,20 @@ public class HeapSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+    /**
+     * java 自带的堆排序 队列 PriorityQueue
+     * @param nums
+     */
+    private static void javaHeapTool(int [] nums){
+        //a-b 小顶堆 ， b-a大顶堆
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>((a,b)->b-a);
+        for (int i : nums){
+            priorityQueue.add(i);
+        }
+        for (int i = 0;i < nums.length;i++){
+            nums[i] = priorityQueue.poll();
+        }
     }
 }
